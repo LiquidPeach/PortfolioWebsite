@@ -93,6 +93,7 @@ pre {
   align-items: center;
   padding: 0px 20px;
   gap: 60px;
+  z-index: 9999;
 }
 
 .nav-link {
@@ -254,7 +255,7 @@ pre {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 .blog-post-img::before {
@@ -395,6 +396,7 @@ pre {
   .hamburger.open .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -414,87 +416,4 @@ pre {
   }
 }
 
-/*******************************************************
-
-section {
-    min-height: 100vh;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 3rem 18rem;
-}
-
-.section {
-    transform: translateY(-100%) scale(0);
-    transition: all .4s ease-in-out;
-    background-color: var(--color-primary);
-}
-
-.sec1 {
-    display: none;
-    transform: translateY(0) scale(1);
-}
-
-.sec2 {
-    display: none;
-    transform: translateY(0) scale(1);
-}
-
-.sec3 {
-    display: none;
-    transform: translateY(0) scale(1);
-}
-
-.sec4 {
-    display: none;
-    transform: translateY(0) scale(1);
-}
-
-.sec5 {
-    display: none;
-    transform: translateY(0) scale(1);
-}
-
-.active {
-  display: block;
-}
-
-// Controls
-.controls {
-    position: fixed;
-    z-index: 10;
-    top: 50%;
-    right: 3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(-50%);
-    .active-btn {
-        background-color: var(--color-secondary) !important;
-        transition: all .4s ease-in-out;
-        i {
-            color: var(--color-white) !important;
-        }
-    }
-    .control {
-        padding: 1rem;
-        cursor: pointer;
-        background-color: var(--color-grey-4);
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: .7rem 0;
-        box-shadow: var(--box-shadow-1);
-        i {
-            font-size: 1.2rem;
-            color: var(--color-grey-2);
-            pointer-events: none;
-        }
-    }
-}
-*//*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map */
