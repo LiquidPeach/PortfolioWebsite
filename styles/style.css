@@ -35,8 +35,14 @@ body {
   background-color: var(--color-primary);
   font-family: "Source Code Pro", monospace;
   font-size: 1.1rem;
+  line-height: 1.4;
   color: var(--color-white);
   transition: all 0.4s ease-in-out;
+}
+
+main {
+  padding: 5rem 0 0 0;
+  min-height: 100%;
 }
 
 li { list-style: none; }
@@ -72,14 +78,22 @@ pre {
 
 .nav-bar {
   display: flex;
+  position: fixed;
+  top: 0px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5rem;
+  padding: 20px 5rem;
   color: var(--color-white);
   background-color: #141622;
-  /*outline: 2.5px solid rgba(151, 151, 151, 0.12);*/
   font-family: inherit;
   font-size: 1.5rem;
+  z-index: 9999;
+}
+
+.nav-icon {
+  width: auto;
+  max-width: 50px;
 }
 
 .nav-branding {
@@ -112,6 +126,7 @@ pre {
 .hamburger {
   display: none;
   cursor: pointer;
+  color: var(--color-white);
 }
 
 .bar {
@@ -121,6 +136,7 @@ pre {
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
   background-color: var(--color-white);
+  color: var(--color-white);
 }
 
 .intro {
@@ -149,7 +165,7 @@ pre {
 
 #footer-hr {
   width:50%;
-  margin:0 auto;
+  margin:1rem auto;
 }
 
 .section-title {
@@ -264,7 +280,7 @@ pre {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 9998;
+  border-radius: .8rem;
 }
 
 .blog-post-img::before {
@@ -409,7 +425,7 @@ pre {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 70px;
+    top: 100px;
     gap: 0;
     flex-direction: column;
     background-color: var(--color-header);
