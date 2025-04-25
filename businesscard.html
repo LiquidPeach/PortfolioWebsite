@@ -12,26 +12,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" >
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
 </head>
-<body class="main-content">
+<body>
     <header>
         <nav class="nav-bar">
             <a class="nav-branding" href="./">
+                <img class="nav-icon" src="imgs/favicon.ico" alt="Home">
+                <!--
                 <span style="color: #14a098">H.</span><span style="color: #FF69B4">Simone</span>
+                -->
             </a>
             <ul class="nav-menu">
                 <!-- 
                 <li class="nav-item">
                     <a href="#" class="nav-link">Blog</a>
                 </li>
-                <li class="nav-item">
-                    <a href="./projects" class="nav-link">Projects</a>
-                </li>
                 -->
                 <li class="nav-item">
-                    <a href="./about" class="nav-link">About</a>
+                    <a href="./projects.html" class="nav-link">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./contact" class="nav-link">Contact</a>
+                    <a href="./about.html" class="nav-link">About</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -55,22 +55,22 @@
             <h1 class="section-subtitle">Intro</h1>
             <div class="blog-paragraph">
                 <p>
-                    This was my extra credit submission for a ray tracer assignment at my computer graphics course in college.
-                    I remembered seeing business card ray tracers online and I wanted to give it a shot. I started off by 
-                    writing a simple path tracer, and then condensed the code so that it could fit on a standard 3.5 x 2 inch 
-                    business card. After many, many hours and lots of hair pulling, I condensed my initial path tracer code 
-                    into 1,444 characters. Kevin Beason's implementation of his pocket-sized path tracer <a class="link" href="https://www.kevinbeason.com/smallpt/">smallPT</a> really helped 
-                    me with this project. I highly recommend checking out his article.
+                    This was an extra credit submission for my computer graphics course in college.
+                    I remembered seeing business card ray tracers online and I wanted to give it a shot. I started by 
+                    writing a simple path tracer and then condensed the code so that it could fit on a standard 3.5in x 2in 
+                    business card. After many, many hours and lots of hair-pulling, I condensed my initial path tracer code 
+                    into 1,444 characters. Kevin Beason's implementation of his pocket-sized path tracer <a class="link" href="https://www.kevinbeason.com/smallpt/">smallPT</a> 
+                    helped me with this project. I highly recommend checking out his article.
                 </p>
             </div>
             
             <h1 class="section-subtitle">My Implementation</h1>
             <div class="blog-paragraph">
                 <p>
-                    This implementation uses Monte Carlo integration to calculate the directions of secondary rays when they hit a lambertian (diffuse) surface. 
-                    I was only able to render spheres because it is the simplest primitive and required the least amount of code. 
-                    The walls, floor, and ceiling are gigantic spheres and the ceiling is the emmiter. Inside the Cornell Box is a lambertian sphere and a 
-                    metal sphere. I chose these materials because I thought they would better represent the capabilities of the path tracer, such as GI 
+                    This implementation uses Monte Carlo integration to calculate the directions of secondary rays when they hit a Lambertian (diffuse) surface. 
+                    I was only able to render spheres because it is the simplest primitive and requires the least amount of code. 
+                    The walls, floor, and ceiling are gigantic spheres and the ceiling is the emitter. Inside the Cornell Box is a diffuse sphere and a 
+                    metal sphere with no roughness. I chose these materials because I thought they would better represent the capabilities of the path tracer, such as GI 
                     and reflections. Plus they were the easiest to render with only a few lines of code.
                     <br><br>
                     Here is the code. You can run it with <span class="code">./card > card.ppm</span> to save the output in a .ppm file and view the final image with <a class="link" href="https://www.cs.rhodes.edu/welshc/COMP141_F16/ppmReader.html">this ppm viewer website</a>. 
@@ -98,7 +98,8 @@ S s{v c,e;f h;<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span
 <span style="color: rgb(189, 255, 124); font-weight: 400;">X</span>())/<span style="color: rgb(255, 109, 109); font-weight: 400;">512</span>)-<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">.414</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">2.414</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>)+ <span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">.828</span>)*((y+<span style="color: rgb(189, 255, 124); font-weight: 400;">X</span>())/<span style="color: rgb(255, 109, 109); font-weight: 400;">512</span>)-r.o).<span style="color: rgb(189, 255, 124); font-weight: 400;">n</span>();c=c+<span style="color: rgb(189, 255, 124); font-weight: 400;">C</span>(r,<span style="color: rgb(255, 109, 109); font-weight: 400;">9</span>);}c=c*<span style="color: rgb(255, 109, 109); font-weight: 400;">.01</span>;<span style="color: rgb(189, 255, 124); font-weight: 400;">printf</span>(
 <span style="color: rgb(255, 109, 109); font-weight: 400;">"%d %d %d\n"</span>,<span style="color: rgb(189, 255, 124); font-weight: 400;">l</span>(c.x),<span style="color: rgb(189, 255, 124); font-weight: 400;">l</span>(c.y),<span style="color: rgb(189, 255, 124); font-weight: 400;">l</span>(c.z));}}G <span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;}</pre>
                     
-                    Here is a closer look at function <span class="code">C</span>, which finds and returns the color of each pixel. It is a recursive function that computes the radiance of a point <span class="code">x</span> given by a viewing direction.
+                    Here is a closer look at function <span class="code">C</span>, which finds and returns the color of each pixel. It is a recursive function that 
+                    computes the radiance of a point <span class="code">x</span> given by a viewing direction.
 
 <pre style="font-family:monospace;color: rgb(189, 183, 175); background-color: rgb(31, 33, 35); font-weight: 400; ">
 <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3 </span><span style="color: rgb(189, 183, 175); font-weight: 400;"><span style="color: rgb(255, 109, 109); font-weight: 700;">C</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(<span style="color: rgb(189, 255, 124); font-weight: 400;">Ray</span> r, <span style="color: rgb(255, 109, 109); font-weight: 400;">int</span> d)</span>
@@ -106,7 +107,7 @@ S s{v c,e;f h;<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span
     <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(d &lt; <span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>)
         <span style="color: rgb(189, 183, 175); font-weight: 700;">return</span> <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span>();
     <span style="color: rgb(255, 109, 109); font-weight: 400;">int</span> n;
-    <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">hit</span>(r, n))
+    <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;"> H</span>(r, n) )
     {
         <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span> N = (r.origin - objects[n].center).<span style="color: rgb(189, 255, 124); font-weight: 400;">normalize</span>();
         <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(!n){
@@ -125,25 +126,25 @@ S s{v c,e;f h;<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span
 }
 </pre>
 
-                    The spheres are in an array and the hit function returns an index of the sphere n that has the closest intersection point. 
-                    Depending on the index n, the function will use a color a to compute the final color of the pixel. If <span class="code">n == 0</span>, 
-                    the ray intersected the metal sphere, and the ray will be perfectly reflected about the surface normal N. <span class="code">If n == 2</span> 
-                    the ray intersected the red wall and the color a will be red. If <span class="code">n == 3</span> the ray hit the blue wall and the color 
-                    will be blue. If none of these are true then the color will be white and the ray will be reflected in a random direction. 
-                    This will be done recursively for d times, then the final color will be set for that pixel.
+                    The spheres are in an array and the hit function <span class="code">H</span> returns the index <span class="code">n</span> of the sphere  
+                    that has the closest intersection point. The function <span class="code">C</span> will compute the final color  
+                    of the pixel depending on the index. If <span class="code">n == 0</span>, the ray intersects the metal sphere and will be perfectly reflected 
+                    about the surface normal <span class="code">N</span>, else it will be reflected in a random direction given by cosine sampling a upper hemisphere. 
+                    If <span class="code">n == 2</span> the ray intersects the red wall and the diffuse color will be red. If <span class="code">n == 3</span> the 
+                    ray hit the blue wall and the diffuse color will be blue. If none of these are true then the diffuse color will be white. This will be done 
+                    <span class="code">d</span> times. I decided not to add Russian Roulette for random path termination because I wanted this code to be as succinct as possible. 
                     <br><br>
                     The hit function <span class="code">H</span> is fairly simple. It determines the closest sphere that a ray intersects with and returns the index 
-                    of that sphere. In this particular scene, a ray is guaranteed to hit a sphere since the camera is inside of the box and the box has all 6 sides.
+                    of that sphere. In this particular scene, a ray is guaranteed to hit a sphere since the camera is inside the box and the box has all 6 sides.
 
                     <img src="imgs/cornellBox.png" alt="Cornell Box 100 spp">
                     <span class="img-descr">100 samples per pixel</span>
-                    <img src="imgs/500ssp.png" alt="Cornell Box 500 spp">
-                    <span class="img-descr">500 samples per pixel</span>
-                    <img style="width: 150px;" src="imgs/card.jpg" alt="business card">
-                    <span class="img-descr">My gorgeous cards</span>
+                    <img src="imgs/2500ssp.png" alt="Cornell Box 2500 spp">
+                    <span class="img-descr">2500 samples per pixel</span> <!-- 1h 51m render time -->
+                    <img style="width: 150px;" src="imgs/cards.jpg" alt="business card">
+                    <span class="img-descr">My beautiful cards</span>
                     <br>
-                    This was a fun project. Maybe next time I'll implement a physically based ray tracer business card 
-                    (ambitious, I know XD).
+                    This was a fun project overall. It really shows how simple the path tracing algorithm is. It also got me a few extra points on my final grade in class :D
                 </p>
             </div>
         </section>
