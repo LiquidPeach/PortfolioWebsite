@@ -23,10 +23,10 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">Blog</a>
                 </li>
-                -->
                 <li class="nav-item">
                     <a href="./projects" class="nav-link">Projects</a>
                 </li>
+                -->
                 <li class="nav-item">
                     <a href="./about" class="nav-link">About</a>
                 </li>
@@ -47,93 +47,110 @@
                 Business Card Path Tracer
             </h1>
             <div class="blog-post-date">
-                <span>May 10, 2023</span>
+                <span>April 24, 2025</span>
             </div>
         </section>
         
         <section class="section blog-post-article" id="portfolio">
+            <h1 class="section-subtitle">Intro</h1>
             <div class="blog-paragraph">
                 <p>
-                    Ut porttitor nibh odio, sit amet imperdiet purus dictum in. Proin sed velit id ligula fermentum euismod at id ligula. 
-                    Aliquam tincidunt mi eu rhoncus cursus. Proin nec interdum tellus. Donec accumsan a metus et ornare. 
-                    Curabitur id nisi volutpat, dapibus libero vel, lobortis erat. Maecenas eget pharetra quam. Interdum et malesuada 
-                    fames ac ante ipsum primis in faucibus. 
-                    Etiam tortor nulla, pretium non urna in, pellentesque dapibus lectus. Vivamus ultrices varius hendrerit.
-                </p>
-            </div>
-            
-            <h1 class="section-subtitle">What is Path Tracing?</h1>
-            <div class="blog-paragraph">
-                <p>
-                    Nam ultrices urna et eros dictum venenatis. Quisque tincidunt nibh at facilisis auctor. Praesent sollicitudin erat 
-                    ut dolor consequat, ut elementum lacus feugiat. Fusce sagittis diam ultricies ipsum blandit, et gravida leo ultrices. 
-                    Nullam fermentum lorem quis augue consectetur lobortis. Orci varius natoque penatibus et magnis dis parturient 
-                    montes, nascetur ridiculus mus. Aliquam viverra sed nisl id tristique. Vestibulum ante ipsum primis in faucibus orci 
-                    luctus et ultrices posuere cubilia curae; In ut condimentum nisl. Phasellus tristique sapien magna, ac pellentesque 
-                    ante tempor ut. Sed id lacinia tellus.
+                    This was my extra credit submission for a ray tracer assignment at my computer graphics course in college.
+                    I remembered seeing business card ray tracers online and I wanted to give it a shot. I started off by 
+                    writing a simple path tracer, and then condensed the code so that it could fit on a standard 3.5 x 2 inch 
+                    business card. After many, many hours and lots of hair pulling, I condensed my initial path tracer code 
+                    into 1,444 characters. Kevin Beason's implementation of his pocket-sized path tracer <a class="link" href="https://www.kevinbeason.com/smallpt/">smallPT</a> really helped 
+                    me with this project. I highly recommend checking out his article.
                 </p>
             </div>
             
             <h1 class="section-subtitle">My Implementation</h1>
             <div class="blog-paragraph">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur tortor ex, non convallis lacus bibendum 
-                    tristique. Curabitur hendrerit mauris quis enim venenatis efficitur. In eget nibh ante. Curabitur in tortor sed 
-                    massa porttitor auctor. Suspendisse lacinia nisl mauris, finibus scelerisque diam cursus id. Phasellus sodales, 
-                    sem eu fringilla dignissim, purus augue pretium libero, vel semper diam nisi non augue. In rhoncus iaculis sem ac 
-                    dignissim. Aliquam et lorem a nunc placerat suscipit. Vestibulum sit amet est et urna bibendum lacinia. Nam id augue 
-                    at felis condimentum congue in non urna. Nam est arcu, posuere ut orci et, elementum tincidunt mi. Class aptent 
-                    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque velit quam, hendrerit 
-                    id elementum ut, fermentum hendrerit lectus. Nam commodo blandit magna, a efficitur velit. 
-                    Nam eu arcu vel tellus gravida suscipit. Sed a metus eros.
-                    <pre><code>
-#include &lt;stdio.h>
-#include &lt;cmath&gt;
-#define Q sqrt
-#define S struct
-#define G return
-#define J operator
-typedef int i;typedef double f;S v{f x,y,z;v(f a=0,f b=0,f c=0){x=a;y=b;z=c;}v J+(v n){
-G v(x+n.x,y+n.y,z+n.z);}v J-(v n){G v(x-n.x,y-n.y,z-n.z);}v J*(f n){G v(x*n,y*n,z*n);}v
-&n(){G*this=*this*(1/Q(x*x+y*y+z*z));}v m(v n){G v(x*n.x,y*n.y,z*n.z);}v c(v n){G v(y*n
-.z-z*n.y,z*n.x-x*n.z,x*n.y-y*n.x);}f q(v n){G x*n.x+y*n.y+z*n.z;}};S R{v o,d;};i W=1e3;
-S s{v c,e;f h;s(v o,f r=W){c=o;h=r;}f H(R&r){v O=r.o-c;f b=-O.q(r.d);f d=b*b-r.d.q(r.d)
-*(O.q(O)-h*h);if(d&lt;0)G 0;d=Q(d);f t=b-d;t=t&lt;.01?b+d:t;G t&lt;.01?0:t;}};s k[8]={s(v(-1.3,-
-3,-9),1),s(v(0,W+2)),s(v(-W-3)),s(v(W+3)),s(v(1,-3,-7),1),s(v(0,-W-4)),s(v(0,0,-W-12)),
-s(v(0,0,W))};i h(R&r,i&n){f t=1e9,T;for(i j=0;j&lt;8;++j){T=k[j].H(r);if(T&&T&lt;t){t=T;n=j;}
-}r.o=r.o+r.d*t;G t&lt;1e9;}f X(){G rand()/32767.;}v C(R r,i d){if(d&lt;0)G v();i n;if(h(r,n))
-{v N=(r.o-k[n].c).n();if(!n){r.d=r.d-N*2*r.d.q(N);G v(.7,.7,.7).m(C(r,d-1));}v a(1,1,1)
-;if(n==2)a=v(1);if(n==3)a.x=a.y=0;v u=(abs(N.x)&gt;.1?v(0,1):v(1)).c(N).n();f x=6*X(),y=Q(
-X());r.d=u*cos(x)*y+N.c(u)*sin(x)*y+N*Q(1-y*y);G k[n].e+a.m(C(r,d-1));}G v();}i l(f x){
-G(x&lt;0?0:x&gt;1?1:x)*255;}i main(){printf("P3\n512 512\n255\n");k[1].e=v(1,1,1);R r;r.o=v(0
-,-2);for(i y=512;y;--y){for(i x=0;x&lt;512;++x){v c;for(i s=0;s&lt;100;++s){r.d=(v(.828)*((x+
-X())/512)-v(.414,2.414,1)+ v(0,.828)*((y+X())/512)-r.o).n();c=c+C(r,9);}c=c*.01;printf(
-"%d %d %d\n",l(c.x),l(c.y),l(c.z));}}G 0;}
-                    </code></pre>
+                    This implementation uses Monte Carlo integration to calculate the directions of secondary rays when they hit a lambertian (diffuse) surface. 
+                    I was only able to render spheres because it is the simplest primitive and required the least amount of code. 
+                    The walls, floor, and ceiling are gigantic spheres and the ceiling is the emmiter. Inside the Cornell Box is a lambertian sphere and a 
+                    metal sphere. I chose these materials because I thought they would better represent the capabilities of the path tracer, such as GI 
+                    and reflections. Plus they were the easiest to render with only a few lines of code.
+                    <br><br>
+                    Here is the code. You can run it with <span class="code">./card > card.ppm</span> to save the output in a .ppm file and view the final image with <a class="link" href="https://www.cs.rhodes.edu/welshc/COMP141_F16/ppmReader.html">this ppm viewer website</a>. 
+                    Just note that it is very slow since it is not multithreaded and runs on the CPU.
+<pre style="font-family:monospace;color: rgb(189, 183, 175); background-color: rgb(31, 33, 35); font-weight: 400; "><span style="color: rgb(105, 186, 225); font-weight: 400;">#<span style="color: rgb(105, 186, 225); font-weight: 700;">include</span> <span style="color: rgb(255, 109, 109); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+<span style="color: rgb(105, 186, 225); font-weight: 400;">#<span style="color: rgb(105, 186, 225); font-weight: 700;">include</span> <span style="color: rgb(255, 109, 109); font-weight: 400;">&lt;cmath&gt;</span></span>
+<span style="color: rgb(105, 186, 225); font-weight: 400;">#<span style="color: rgb(105, 186, 225); font-weight: 700;">define</span> Q sqrt</span>
+<span style="color: rgb(105, 186, 225); font-weight: 400;">#<span style="color: rgb(105, 186, 225); font-weight: 700;">define</span> S struct</span>
+<span style="color: rgb(105, 186, 225); font-weight: 400;">#<span style="color: rgb(105, 186, 225); font-weight: 700;">define</span> G return</span>
+<span style="color: rgb(105, 186, 225); font-weight: 400;">#<span style="color: rgb(105, 186, 225); font-weight: 700;">define</span> J operator</span>
+<span style="color: rgb(189, 183, 175); font-weight: 700;">typedef</span> <span style="color: rgb(255, 109, 109); font-weight: 400;">int</span> i;<span style="color: rgb(189, 183, 175); font-weight: 700;">typedef</span> <span style="color: rgb(255, 109, 109); font-weight: 400;">double</span> f;S v{f x,y,z;<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(f a=<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,f b=<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,f c=<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>){x=a;y=b;z=c;}v J+(v n){
+<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(x+n.x,y+n.y,z+n.z)</span></span>;}v J-(v n){<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(x-n.x,y-n.y,z-n.z)</span></span>;}v J*(f n){<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(x*n,y*n,z*n)</span></span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">v
+&amp;<span style="color: rgb(255, 109, 109); font-weight: 700;">n</span><span style="color: rgb(189, 183, 175); font-weight: 400;">()</span></span>{G*<span style="color: rgb(189, 183, 175); font-weight: 700;">this</span>=*<span style="color: rgb(189, 183, 175); font-weight: 700;">this</span>*(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>/<span style="color: rgb(189, 255, 124); font-weight: 400;">Q</span>(x*x+y*y+z*z));}<span style="color: rgb(189, 183, 175); font-weight: 400;">v <span style="color: rgb(255, 109, 109); font-weight: 700;">m</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(v n)</span></span>{<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(x*n.x,y*n.y,z*n.z)</span></span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">v <span style="color: rgb(255, 109, 109); font-weight: 700;">c</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(v n)</span></span>{<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(y*n
+.z-z*n.y,z*n.x-x*n.z,x*n.y-y*n.x)</span></span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">f <span style="color: rgb(255, 109, 109); font-weight: 700;">q</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(v n)</span></span>{G x*n.x+y*n.y+z*n.z;}};S R{v o,d;};i W=<span style="color: rgb(255, 109, 109); font-weight: 400;">1e3</span>;
+S s{v c,e;f h;<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(v o,f r=W){c=o;h=r;}<span style="color: rgb(189, 183, 175); font-weight: 400;">f <span style="color: rgb(255, 109, 109); font-weight: 700;">H</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(R&amp;r)</span></span>{v O=r.o-c;f b=-O.<span style="color: rgb(189, 255, 124); font-weight: 400;">q</span>(r.d);f d=b*b-r.d.<span style="color: rgb(189, 255, 124); font-weight: 400;">q</span>(r.d)
+*(O.<span style="color: rgb(189, 255, 124); font-weight: 400;">q</span>(O)-h*h);<span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(d&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>)G <span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;d=<span style="color: rgb(189, 255, 124); font-weight: 400;">Q</span>(d);f t=b-d;t=t&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">.01</span>?b+d:t;G t&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">.01</span>?<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>:t;}};s k[<span style="color: rgb(255, 109, 109); font-weight: 400;">8</span>]={<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">-1.3</span>,-
+<span style="color: rgb(255, 109, 109); font-weight: 400;">3</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">-9</span>),<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>),<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,W+<span style="color: rgb(255, 109, 109); font-weight: 400;">2</span>)),<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(-W<span style="color: rgb(255, 109, 109); font-weight: 400;">-3</span>)),<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(W+<span style="color: rgb(255, 109, 109); font-weight: 400;">3</span>)),<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">-3</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">-7</span>),<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>),<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,-W<span style="color: rgb(255, 109, 109); font-weight: 400;">-4</span>)),<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,-W<span style="color: rgb(255, 109, 109); font-weight: 400;">-12</span>)),
+<span style="color: rgb(189, 255, 124); font-weight: 400;">s</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,W))};<span style="color: rgb(189, 183, 175); font-weight: 400;">i <span style="color: rgb(255, 109, 109); font-weight: 700;">h</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(R&amp;r,i&amp;n)</span></span>{f t=<span style="color: rgb(255, 109, 109); font-weight: 400;">1e9</span>,T;<span style="color: rgb(189, 183, 175); font-weight: 700;">for</span>(i j=<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;j&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">8</span>;++j){T=k[j].<span style="color: rgb(189, 255, 124); font-weight: 400;">H</span>(r);<span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(T&amp;&amp;T&lt;t){t=T;n=j;}
+}r.o=r.o+r.d*t;G t&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">1e9</span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">f <span style="color: rgb(255, 109, 109); font-weight: 700;">X</span><span style="color: rgb(189, 183, 175); font-weight: 400;">()</span></span>{<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">rand</span><span style="color: rgb(189, 183, 175); font-weight: 400;">()</span>/<span style="color: rgb(255, 109, 109); font-weight: 400;">32767.</span></span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">v <span style="color: rgb(255, 109, 109); font-weight: 700;">C</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(R r,i d)</span></span>{<span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(d&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>)<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">()</span></span>;i n;<span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">h</span>(r,n))
+{v N=(r.o-k[n].c).<span style="color: rgb(189, 255, 124); font-weight: 400;">n</span>();<span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(!n){r.d=r.d-N*<span style="color: rgb(255, 109, 109); font-weight: 400;">2</span>*r.d.<span style="color: rgb(189, 255, 124); font-weight: 400;">q</span>(N);<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(<span style="color: rgb(255, 109, 109); font-weight: 400;">.7</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">.7</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">.7</span>)</span>.<span style="color: rgb(255, 109, 109); font-weight: 700;">m</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(C(r,d<span style="color: rgb(255, 109, 109); font-weight: 400;">-1</span>))</span></span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">v <span style="color: rgb(255, 109, 109); font-weight: 700;">a</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>)</span>
+</span>;<span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(n==<span style="color: rgb(255, 109, 109); font-weight: 400;">2</span>)a=<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>);<span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(n==<span style="color: rgb(255, 109, 109); font-weight: 400;">3</span>)a.x=a.y=<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;v u=(<span style="color: rgb(189, 255, 124); font-weight: 400;">abs</span>(N.x)&gt;<span style="color: rgb(255, 109, 109); font-weight: 400;">.1</span>?<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>):<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>)).<span style="color: rgb(189, 255, 124); font-weight: 400;">c</span>(N).<span style="color: rgb(189, 255, 124); font-weight: 400;">n</span>();f x=<span style="color: rgb(255, 109, 109); font-weight: 400;">6</span>*<span style="color: rgb(189, 255, 124); font-weight: 400;">X</span>(),y=<span style="color: rgb(189, 255, 124); font-weight: 400;">Q</span>(
+<span style="color: rgb(189, 255, 124); font-weight: 400;">X</span>());r.d=u*<span style="color: rgb(189, 255, 124); font-weight: 400;">cos</span>(x)*y+N.<span style="color: rgb(189, 255, 124); font-weight: 400;">c</span>(u)*<span style="color: rgb(189, 255, 124); font-weight: 400;">sin</span>(x)*y+N*<span style="color: rgb(189, 255, 124); font-weight: 400;">Q</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>-y*y);G k[n].e+a.<span style="color: rgb(189, 255, 124); font-weight: 400;">m</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">C</span>(r,d<span style="color: rgb(255, 109, 109); font-weight: 400;">-1</span>));}<span style="color: rgb(189, 183, 175); font-weight: 400;">G <span style="color: rgb(255, 109, 109); font-weight: 700;">v</span><span style="color: rgb(189, 183, 175); font-weight: 400;">()</span></span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">i <span style="color: rgb(255, 109, 109); font-weight: 700;">l</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(f x)</span></span>{
+<span style="color: rgb(189, 255, 124); font-weight: 400;">G</span>(x&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>?<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>:x&gt;<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>?<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>:x)*<span style="color: rgb(255, 109, 109); font-weight: 400;">255</span>;}<span style="color: rgb(189, 183, 175); font-weight: 400;">i <span style="color: rgb(255, 109, 109); font-weight: 700;">main</span><span style="color: rgb(189, 183, 175); font-weight: 400;">()</span></span>{<span style="color: rgb(189, 255, 124); font-weight: 400;">printf</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">"P3\n512 512\n255\n"</span>);k[<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>].e=<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>);R r;r.o=<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>
+,<span style="color: rgb(255, 109, 109); font-weight: 400;">-2</span>);<span style="color: rgb(189, 183, 175); font-weight: 700;">for</span>(i y=<span style="color: rgb(255, 109, 109); font-weight: 400;">512</span>;y;--y){<span style="color: rgb(189, 183, 175); font-weight: 700;">for</span>(i x=<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;x&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">512</span>;++x){v c;<span style="color: rgb(189, 183, 175); font-weight: 700;">for</span>(i s=<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;s&lt;<span style="color: rgb(255, 109, 109); font-weight: 400;">100</span>;++s){r.d=(<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">.828</span>)*((x+
+<span style="color: rgb(189, 255, 124); font-weight: 400;">X</span>())/<span style="color: rgb(255, 109, 109); font-weight: 400;">512</span>)-<span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">.414</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">2.414</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>)+ <span style="color: rgb(189, 255, 124); font-weight: 400;">v</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">.828</span>)*((y+<span style="color: rgb(189, 255, 124); font-weight: 400;">X</span>())/<span style="color: rgb(255, 109, 109); font-weight: 400;">512</span>)-r.o).<span style="color: rgb(189, 255, 124); font-weight: 400;">n</span>();c=c+<span style="color: rgb(189, 255, 124); font-weight: 400;">C</span>(r,<span style="color: rgb(255, 109, 109); font-weight: 400;">9</span>);}c=c*<span style="color: rgb(255, 109, 109); font-weight: 400;">.01</span>;<span style="color: rgb(189, 255, 124); font-weight: 400;">printf</span>(
+<span style="color: rgb(255, 109, 109); font-weight: 400;">"%d %d %d\n"</span>,<span style="color: rgb(189, 255, 124); font-weight: 400;">l</span>(c.x),<span style="color: rgb(189, 255, 124); font-weight: 400;">l</span>(c.y),<span style="color: rgb(189, 255, 124); font-weight: 400;">l</span>(c.z));}}G <span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;}</pre>
+                    
+                    Here is a closer look at function <span class="code">C</span>, which finds and returns the color of each pixel. It is a recursive function that computes the radiance of a point <span class="code">x</span> given by a viewing direction.
 
-                    Aliquam mi justo, scelerisque sed tincidunt id, mattis a dolor. Sed non mauris et quam porta fringilla ac ac justo. 
-                    Sed vestibulum congue nisi, eget gravida felis sagittis vitae. Quisque facilisis dui nulla, eu feugiat nulla rhoncus vel. 
-                    Nam consequat varius erat sit amet tristique. Cras ac ligula vel nibh commodo tincidunt non ut odio. Aliquam sodales lectus nec 
-                    accumsan ultricies. Fusce in lectus vitae libero imperdiet dignissim quis sit amet dolor. Morbi pulvinar augue et libero rhoncus 
-                    varius a a lacus. Morbi at mattis elit, id dictum eros. Curabitur et quam a lectus pulvinar blandit. Ut non augue nisl. Cras 
-                    molestie dolor vel bibendum fringilla. Donec vel mauris a turpis vestibulum vestibulum a convallis lorem. 
-                    Integer vitae tincidunt libero.
+<pre style="font-family:monospace;color: rgb(189, 183, 175); background-color: rgb(31, 33, 35); font-weight: 400; ">
+<span style="color: rgb(189, 255, 124); font-weight: 400;">vec3 </span><span style="color: rgb(189, 183, 175); font-weight: 400;"><span style="color: rgb(255, 109, 109); font-weight: 700;">C</span><span style="color: rgb(189, 183, 175); font-weight: 400;">(<span style="color: rgb(189, 255, 124); font-weight: 400;">Ray</span> r, <span style="color: rgb(255, 109, 109); font-weight: 400;">int</span> d)</span>
+</span>{
+    <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(d &lt; <span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>)
+        <span style="color: rgb(189, 183, 175); font-weight: 700;">return</span> <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span>();
+    <span style="color: rgb(255, 109, 109); font-weight: 400;">int</span> n;
+    <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">hit</span>(r, n))
+    {
+        <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span> N = (r.origin - objects[n].center).<span style="color: rgb(189, 255, 124); font-weight: 400;">normalize</span>();
+        <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span>(!n){
+            r.direction = r.direction - N*<span style="color: rgb(255, 109, 109); font-weight: 400;">2</span>*r.direction.<span style="color: rgb(189, 255, 124); font-weight: 400;">dot</span>(N);
+            <span style="color: rgb(189, 183, 175); font-weight: 700;">return</span> <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">.7</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">.7</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">.7</span>).<span style="color: rgb(189, 255, 124); font-weight: 400;">multiply</span>( <span style="color: rgb(189, 255, 124); font-weight: 400;">C</span>(r, d-<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>) );
+        }
+        <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span><span style="color: rgb(189, 183, 175); font-weight: 400;"> a<span style="color: rgb(189, 183, 175); font-weight: 400;">(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>)</span></span>;
+        <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span> (n == <span style="color: rgb(255, 109, 109); font-weight: 400;">2</span>) a = <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>);
+        <span style="color: rgb(189, 183, 175); font-weight: 700;">if</span> (n == <span style="color: rgb(255, 109, 109); font-weight: 400;">3</span>) a.x = a.y = <span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>;
+        <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span> u = (<span style="color: rgb(189, 255, 124); font-weight: 400;">abs</span>(N.x) &gt; <span style="color: rgb(255, 109, 109); font-weight: 400;">.1</span> ? <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">0</span>,<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>) : <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>)).<span style="color: rgb(189, 255, 124); font-weight: 400;">cross</span>(N).<span style="color: rgb(189, 255, 124); font-weight: 400;">normalize</span>();
+        <span style="color: rgb(255, 109, 109); font-weight: 400;">double</span> x = <span style="color: rgb(255, 109, 109); font-weight: 400;">6</span> * <span style="color: rgb(189, 255, 124); font-weight: 400;">random</span>(), y = <span style="color: rgb(189, 255, 124); font-weight: 400;">sqrt</span>(<span style="color: rgb(189, 255, 124); font-weight: 400;">random</span>()); <span style="color: rgb(163, 156, 144); font-weight: 400;">// 2 * PI rounds to 6</span>
+        r.direction = u*<span style="color: rgb(189, 255, 124); font-weight: 400;">cos</span>(x)*y + N.<span style="color: rgb(189, 255, 124); font-weight: 400;">cross</span>(u)*<span style="color: rgb(189, 255, 124); font-weight: 400;">sin</span>(x)*y + N*<span style="color: rgb(189, 255, 124); font-weight: 400;">sqrt</span>(<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>-y*y);
+        <span style="color: rgb(189, 183, 175); font-weight: 700;">return</span> objects[n].emission + a.<span style="color: rgb(189, 255, 124); font-weight: 400;">multiply</span>( <span style="color: rgb(189, 255, 124); font-weight: 400;">C</span>(r, d-<span style="color: rgb(255, 109, 109); font-weight: 400;">1</span>) );
+    }
+    <span style="color: rgb(189, 183, 175); font-weight: 700;">return</span> <span style="color: rgb(189, 255, 124); font-weight: 400;">vec3</span>();
+}
+</pre>
 
-                    <img src="imgs/tempThumbnail.png" alt="Cornell Box">
-                    <span class="img-descr">Rendered at 500 samples per pixel</span>
-                    <img src="imgs/tempThumbnail.png" alt="Cornell Box">
-                    <span class="img-descr">Rendered at 2500 samples per pixel</span>
+                    The spheres are in an array and the hit function returns an index of the sphere n that has the closest intersection point. 
+                    Depending on the index n, the function will use a color a to compute the final color of the pixel. If <span class="code">n == 0</span>, 
+                    the ray intersected the metal sphere, and the ray will be perfectly reflected about the surface normal N. <span class="code">If n == 2</span> 
+                    the ray intersected the red wall and the color a will be red. If <span class="code">n == 3</span> the ray hit the blue wall and the color 
+                    will be blue. If none of these are true then the color will be white and the ray will be reflected in a random direction. 
+                    This will be done recursively for d times, then the final color will be set for that pixel.
+                    <br><br>
+                    The hit function <span class="code">H</span> is fairly simple. It determines the closest sphere that a ray intersects with and returns the index 
+                    of that sphere. In this particular scene, a ray is guaranteed to hit a sphere since the camera is inside of the box and the box has all 6 sides.
+
+                    <img src="imgs/cornellBox.png" alt="Cornell Box 100 spp">
+                    <span class="img-descr">100 samples per pixel</span>
+                    <img src="imgs/500ssp.png" alt="Cornell Box 500 spp">
+                    <span class="img-descr">500 samples per pixel</span>
+                    <img style="width: 150px;" src="imgs/card.jpg" alt="business card">
+                    <span class="img-descr">My gorgeous cards</span>
                     <br>
-                    Nam ultrices urna et eros dictum venenatis. Quisque tincidunt nibh at facilisis auctor. Praesent sollicitudin erat ut dolor 
-                    consequat, ut elementum lacus feugiat. Fusce sagittis diam ultricies ipsum blandit, et gravida leo ultrices. Nullam 
-                    fermentum lorem quis augue consectetur lobortis.
+                    This was a fun project. Maybe next time I'll implement a physically based ray tracer business card 
+                    (ambitious, I know XD).
                 </p>
             </div>
         </section>
     </main>
     <footer id="footer">
         <hr id="footer-hr">
-        Copyright 2023 H. Simone Wright
+        Copyright 2025 H. Simone Wright
     </footer>
 
     <script src="app.js"></script>
